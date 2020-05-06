@@ -42,7 +42,7 @@ public class GamePage7 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_page1);
+        setContentView(R.layout.activity_game_page);
 
         gameStatus = getIntent().getStringExtra("GameStatus");
 

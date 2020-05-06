@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.you.gaming.GamePage1;
 import com.example.you.R;
+import com.example.you.gaming.GamePage1;
 
 public class PreGamePage extends AppCompatActivity {
 

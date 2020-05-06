@@ -53,10 +53,18 @@ public class AuthActivity extends AppCompatActivity {
     private DatabaseReference users;
     private StorageTask storageTask;
     private ProgressBar progressBar;
+    private FirebaseUser firebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (firebaseUser != null){
+            startActivity(new Intent(AuthActivity.this, PreGamePage.class));
+            finish();
+        }
+
         setContentView(R.layout.activity_auth);
 
         radioGroup = findViewById(R.id.radioGroup);

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/constraint_layout_GP1"
+    android:background="@color/background"
     tools:context=".gaming.GamePage1">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -156,8 +157,9 @@
 
             <Button
                 android:id="@+id/buttonContinue"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:text="ПРОДОЛЖИТЬ / CONTINUE" />
 
             <androidx.recyclerview.widget.RecyclerView

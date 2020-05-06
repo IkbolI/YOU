@@ -1,21 +1,27 @@
 package com.example.you.gaming;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.util.LogWriter;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.you.R;
 import com.example.you.adapter.CommentAdapter;
 import com.example.you.models.CommentClass;
-import com.example.you.R;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -24,8 +30,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Comment;
+
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 public class GamePage1 extends AppCompatActivity {
 
@@ -55,7 +66,7 @@ public class GamePage1 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_page1);
+        setContentView(R.layout.activity_game_page);
 
         gameStatus = getIntent().getStringExtra("GameStatus");
 
@@ -274,15 +285,19 @@ public class GamePage1 extends AppCompatActivity {
         });
     }
 
-    private void readDataComments (final FirebaseCallbackComments firebaseCallbackComments) {
+    private void readDataComments(final FirebaseCallbackComments firebaseCallbackComments) {
         game.child("COMMENT").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds: dataSnapshot.getChildren()) {
-//                    CommentClass commentClass = new CommentClass();
+                    CommentClass commentClass = null;
                     String retreivedUserName = ds.child("name").getValue(String.class);
                     String retreivedText = ds.child("text").getValue(String.class);
+                    commentClass.setUsername(retreivedUserName);
+                    commentClass.setComment(retreivedText);
+                    comments.add(commentClass);
                 }
+                firebaseCallbackComments.onCallback(comments);
             }
 
             @Override
@@ -297,6 +312,6 @@ public class GamePage1 extends AppCompatActivity {
     }
 
     private interface FirebaseCallbackComments {
-        void onCallback (CommentClass commentClass);
+        void onCallback (List<CommentClass> commentClass);
     }
 }

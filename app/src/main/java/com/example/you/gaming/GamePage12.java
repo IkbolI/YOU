@@ -10,8 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.you.R;
 import com.example.you.registration.PreGamePage;
+import com.example.you.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -43,7 +43,7 @@ public class GamePage12 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_page1);
+        setContentView(R.layout.activity_game_page);
 
         gameStatus = getIntent().getStringExtra("GameStatus");
 

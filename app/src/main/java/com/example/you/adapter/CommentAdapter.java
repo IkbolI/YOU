@@ -28,7 +28,7 @@ public class CommentAdapter extends RecyclerView.Adapter <CommentAdapter.ViewHol
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.activity_game_page1, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.activity_game_page, parent, false);
         return new CommentAdapter.ViewHolder(view);
     }
 
