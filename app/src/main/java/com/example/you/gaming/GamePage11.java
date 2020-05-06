@@ -1,21 +1,16 @@
-package com.example.you;
+package com.example.you.gaming;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.util.LogWriter;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
+import com.example.you.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -25,12 +20,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
-public class GamePage8 extends AppCompatActivity {
+public class GamePage11 extends AppCompatActivity {
 
     String gameStatus;
 
@@ -68,15 +60,15 @@ public class GamePage8 extends AppCompatActivity {
         textView_MAYBE = (TextView) findViewById(R.id.textView_MAYBE);
         textView_NO = (TextView) findViewById(R.id.textView_NO);
 
-        textView.setText("Мне всегда нужна поддержка от моих родителей/я всегда должен поддерживать своих детей.\n\n I always need support from my parents / I always need to support my children.");
+        textView.setText("Я думаю, что молодёжь должна отдавать зарплату родителям (по закону).\n\n I think that young people should give their parents salaries (by law).");
         textView.setTextSize(20.0f);
-        textView2.setText("Мне всегда нужна поддержка от моих родителей/я всегда должен поддерживать своих детей.\n\n I always need support from my parents / I always need to support my children.");
+        textView2.setText("Я думаю, что молодёжь должна отдавать зарплату родителям (по закону).\n\n I think that young people should give their parents salaries (by law).");
         textView2.setTextSize(20.0f);
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseDatabase.getInstance();
         user = mAuth.getCurrentUser();
-        game = db.getReference("GAME").child("GP8");
+        game = db.getReference("GAME").child("GP11");
         users = db.getReference("Users").child(user.getUid()).child("name");
         usersNameYes = new ArrayList<>();
         usersNameMaybe = new ArrayList<>();
@@ -94,7 +86,7 @@ public class GamePage8 extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             String userName = dataSnapshot.getValue(String.class);
                             game.child("Yes").child(user.getUid()).child("name").setValue(userName);
-                            Intent intent = new Intent(GamePage8.this, GamePage9.class);
+                            Intent intent = new Intent(GamePage11.this, GamePage12.class);
                             intent.putExtra("GameStatus", gameStatus);
                             startActivity(intent);
                         }
@@ -113,7 +105,7 @@ public class GamePage8 extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             String userName = dataSnapshot.getValue(String.class);
                             game.child("Maybe").child(user.getUid()).child("name").setValue(userName);
-                            Intent intent = new Intent(GamePage8.this, GamePage9.class);
+                            Intent intent = new Intent(GamePage11.this, GamePage12.class);
                             intent.putExtra("GameStatus", gameStatus);
                             startActivity(intent);
                         }
@@ -132,7 +124,7 @@ public class GamePage8 extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             String userName = dataSnapshot.getValue(String.class);
                             game.child("No").child(user.getUid()).child("name").setValue(userName);
-                            Intent intent = new Intent(GamePage8.this, GamePage9.class);
+                            Intent intent = new Intent(GamePage11.this, GamePage12.class);
                             intent.putExtra("GameStatus", gameStatus);
                             startActivity(intent);
                         }
@@ -199,7 +191,7 @@ public class GamePage8 extends AppCompatActivity {
             btn_Cont.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(GamePage8.this, GamePage9.class);
+                    Intent intent = new Intent(GamePage11.this, GamePage12.class);
                     intent.putExtra("GameStatus", gameStatus);
                     startActivity(intent);
                 }

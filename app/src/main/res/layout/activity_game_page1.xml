@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/constraint_layout_GP1"
-    tools:context=".GamePage1">
+    tools:context=".gaming.GamePage1">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.example.you;
+package com.example.you.models;
 
 public class CommentClass {
     private String username;

@@ -1,4 +1,4 @@
-package com.example.you;
+package com.example.you.registration;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.you.gaming.GamePage1;
+import com.example.you.R;
 
 public class PreGamePage extends AppCompatActivity {
 

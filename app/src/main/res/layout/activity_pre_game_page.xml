@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/constraint_layout_pregame"
-    tools:context=".PreGamePage">
+    tools:context=".registration.PreGamePage">
 
     <Button
         android:id="@+id/buttonPlay"

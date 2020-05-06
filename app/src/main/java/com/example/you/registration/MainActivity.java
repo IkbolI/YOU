@@ -1,4 +1,4 @@
-package com.example.you;
+package com.example.you.registration;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,8 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.example.you.R;
 
 public class MainActivity extends AppCompatActivity {
 

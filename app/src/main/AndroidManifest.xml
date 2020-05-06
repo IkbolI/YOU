@@ -11,21 +11,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GamePage12"></activity>
-        <activity android:name=".GamePage11" />
-        <activity android:name=".GamePage10" />
-        <activity android:name=".GamePage9" />
-        <activity android:name=".GamePage8" />
-        <activity android:name=".GamePage7" />
-        <activity android:name=".GamePage6" />
-        <activity android:name=".GamePage5" />
-        <activity android:name=".GamePage4" />
-        <activity android:name=".GamePage3" />
-        <activity android:name=".GamePage2" />
-        <activity android:name=".PreGamePage" />
-        <activity android:name=".GamePage1" />
-        <activity android:name=".AuthActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".gaming.GamePage12"></activity>
+        <activity android:name=".gaming.GamePage11" />
+        <activity android:name=".gaming.GamePage10" />
+        <activity android:name=".gaming.GamePage9" />
+        <activity android:name=".gaming.GamePage8" />
+        <activity android:name=".gaming.GamePage7" />
+        <activity android:name=".gaming.GamePage6" />
+        <activity android:name=".gaming.GamePage5" />
+        <activity android:name=".gaming.GamePage4" />
+        <activity android:name=".gaming.GamePage3" />
+        <activity android:name=".gaming.GamePage2" />
+        <activity android:name=".registration.PreGamePage" />
+        <activity android:name=".gaming.GamePage1" />
+        <activity android:name=".registration.AuthActivity" />
+        <activity android:name=".registration.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
