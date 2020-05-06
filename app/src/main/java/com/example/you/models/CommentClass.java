@@ -1,6 +1,7 @@
 package com.example.you.models;
 
 public class CommentClass {
+
     private String username;
     private String comment;
 
@@ -8,6 +9,8 @@ public class CommentClass {
         this.username = username;
         this.comment = comment;
     }
+
+    public  CommentClass () {}
 
     public String getUsername() {
         return username;

@@ -45,8 +45,6 @@ public class GamePage1 extends AppCompatActivity {
 
     ConstraintLayout layoutPLay, layoutResult;
 
-
-
     FirebaseAuth mAuth;
     FirebaseDatabase db;
     DatabaseReference game, users;
@@ -88,6 +86,7 @@ public class GamePage1 extends AppCompatActivity {
         usersNameYes = new ArrayList<>();
         usersNameMaybe = new ArrayList<>();
         usersNameNo = new ArrayList<>();
+        comments = new ArrayList<>();
 
         if (gameStatus.equals("YES")) {
 
@@ -215,6 +214,18 @@ public class GamePage1 extends AppCompatActivity {
                 }
             });
 
+            readDataComments(new FirebaseCallbackComments() {
+                @Override
+                public void onCallback(List<CommentClass> commentClass) {
+                    if (commentClass.isEmpty()){
+
+                    } else {
+                        commentAdapter = new CommentAdapter(GamePage1.this, commentClass);
+                        recyclerView.setAdapter(commentAdapter);
+                    }
+                }
+            });
+
             btn_Cont.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -279,15 +290,18 @@ public class GamePage1 extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds: dataSnapshot.getChildren()) {
-//                    CommentClass commentClass = new CommentClass();
+                    CommentClass commentClass = new CommentClass();
                     String retreivedUserName = ds.child("name").getValue(String.class);
                     String retreivedText = ds.child("text").getValue(String.class);
+                    commentClass.setUsername(retreivedUserName);
+                    commentClass.setComment(retreivedText);
+                    comments.add(commentClass);
                 }
+                firebaseCallbackComments.onCallback(comments);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
     }
@@ -297,6 +311,6 @@ public class GamePage1 extends AppCompatActivity {
     }
 
     private interface FirebaseCallbackComments {
-        void onCallback (CommentClass commentClass);
+        void onCallback (List<CommentClass> commentClass);
     }
 }
