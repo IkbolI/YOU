@@ -42,7 +42,7 @@ public class AuthActivity extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
 
     private EditText username, email, password;
-    private Button registration, choose;
+    private Button registration;
     private ImageView imageView;
     private RadioGroup radioGroup;
     private RadioButton radio_parent;
@@ -64,14 +64,13 @@ public class AuthActivity extends AppCompatActivity {
         email = (EditText) findViewById(R.id.edt_email);
         password = (EditText) findViewById(R.id.etd_password);
         registration = (Button) findViewById(R.id.btn_register);
-        choose = (Button) findViewById(R.id.btn_choose);
         imageView = (ImageView) findViewById(R.id.image_view);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         storageReference = FirebaseStorage.getInstance().getReference("Users");
         users = FirebaseDatabase.getInstance().getReference("Users");
         mAuth = FirebaseAuth.getInstance();
-        choose.setOnClickListener(new View.OnClickListener() {
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openFileChooser();
