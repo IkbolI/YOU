@@ -78,6 +78,13 @@ public class AuthActivity extends AppCompatActivity {
         storageReference = FirebaseStorage.getInstance().getReference("Users");
         users = FirebaseDatabase.getInstance().getReference("Users");
         mAuth = FirebaseAuth.getInstance();
+
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (firebaseUser != null){
+            startActivity(new Intent(AuthActivity.this, PreGamePage.class));
+            finish();
+        }
+
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
