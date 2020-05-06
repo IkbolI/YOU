@@ -10,6 +10,9 @@
     <color name="btnSignIn">#1fbad6</color>
     <color name="btnSignUp">#83838c</color>
     <color name="btnColor">#9d292a</color>
+    <color name="gameBackground">#DD6769</color>
+    <color name="yesBack">#02d766</color>
+    <color name="noBack">#ff3b56</color>
 
     <color name="background">#202848</color>
 

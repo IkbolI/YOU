@@ -59,7 +59,11 @@ public class AuthActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (firebaseUser != null){
+            startActivity(new Intent(AuthActivity.this, GameList.class));
+            finish();
+        }
 
         setContentView(R.layout.activity_auth);
 
