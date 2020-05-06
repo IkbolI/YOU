@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".registration.GameList"></activity>
         <activity android:name=".gaming.GamePage12" />
         <activity android:name=".gaming.GamePage11" />
         <activity android:name=".gaming.GamePage10" />
@@ -24,12 +25,18 @@
         <activity android:name=".gaming.GamePage2" />
         <activity android:name=".registration.PreGamePage" />
         <activity android:name=".gaming.GamePage1" />
-        <activity android:name=".registration.AuthActivity" />
-        <activity android:name=".registration.MainActivity">
+        <activity android:name=".registration.AuthActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".registration.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>

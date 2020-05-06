@@ -1,41 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/constraint_layout"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".registration.MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        app:layout_constraintTop_toTopOf="@id/constraint_layout"
-        app:layout_constraintRight_toRightOf="@id/constraint_layout"
-        app:layout_constraintLeft_toLeftOf="@id/constraint_layout"
-        android:layout_marginTop="50dp"
-        app:srcCompat="@drawable/logo_you" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:srcCompat="@drawable/logo_you"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Данное приложение включает в себя \n упражнения с методологии проекта YOU. \n\n This app consists of exercises\n from YOU project methodology."
-        android:gravity="center_horizontal"
-        android:textAlignment="center"
-        app:layout_constraintTop_toTopOf="@id/constraint_layout"
-        app:layout_constraintRight_toRightOf="@id/constraint_layout"
-        app:layout_constraintLeft_toLeftOf="@id/constraint_layout"
-        android:layout_marginTop="250dp" />
+        <TextView
+            android:id="@+id/disclaimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageView"
+            android:layout_marginTop="44dp"
+            android:text="Данное приложение включает в себя \n упражнения с методологии проекта YOU."
+            android:textAlignment="center"
+            android:gravity="center_horizontal" />
 
-    <Button
-        android:id="@+id/button_getTuned"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="НАСТРАИВАЙСЯ! / TUNE INE"
-        app:layout_constraintTop_toTopOf="@id/constraint_layout"
-        app:layout_constraintRight_toRightOf="@id/constraint_layout"
-        app:layout_constraintLeft_toLeftOf="@id/constraint_layout"
-        android:layout_marginTop="350dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/button_getTuned"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="НАСТРАИВАЙСЯ!"
+            android:background="@drawable/btn_background"
+            android:textColor="@android:color/white"
+            android:layout_below="@id/disclaimer"
+            android:padding="15dp"
+            android:layout_marginTop="50dp"/>
+
+</LinearLayout>

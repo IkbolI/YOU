@@ -6,6 +6,10 @@
 
     <color name="white">#ffffff</color>
     <color name="blue">#2196F3</color>
+    <color name="rippleEffect">#f816a463</color>
+    <color name="btnSignIn">#1fbad6</color>
+    <color name="btnSignUp">#83838c</color>
+    <color name="btnColor">#9d292a</color>
 
     <color name="background">#202848</color>
 

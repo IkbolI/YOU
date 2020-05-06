@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/constraint_layout"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".registration.MainActivity">
+
+
+    <TextView
+        android:id="@+id/disclaimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:layout_marginTop="44dp"
+        android:text="Список игр"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <Button
+                android:id="@+id/game9"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_success"
+                android:padding="5dp"
+                android:textSize="12sp"
+                android:text="СОГЛАСЕН / НЕ СОГЛАСЕН"
+                android:textColor="@android:color/white" />
+
+
+            <Button
+                android:id="@+id/game1"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="УПРАЖНЕНИЕ 1: ВСЕ С ..."
+                android:background="@drawable/btn_background"
+                android:textColor="@android:color/white"
+                android:padding="5dp"
+                android:textSize="12sp"
+                android:enabled="false"
+                android:layout_marginTop="10dp"/>
+
+            <Button
+                android:id="@+id/game2"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="ПУТЕШЕСТВИЕ К МЕЧТЕ"
+                android:background="@drawable/btn_background"
+                android:textColor="@android:color/white"
+                android:padding="5dp"
+                android:enabled="false"
+                android:textSize="12sp"
+                android:layout_marginTop="10dp"/>
+
+
+            <Button
+                android:id="@+id/game3"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Я-РИСОВАНИЕ"
+                android:enabled="false"
+                android:background="@drawable/btn_background"
+                android:textColor="@android:color/white"
+                android:padding="5dp"
+                android:textSize="12sp"
+                android:layout_marginTop="10dp"/>
+
+
+
+            <Button
+                android:id="@+id/game4"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:enabled="false"
+                android:background="@drawable/btn_background"
+                android:padding="5dp"
+                android:textSize="12sp"
+                android:text="ПОСТАНОВКА ЦЕЛИ"
+                android:textColor="@android:color/white" />
+
+
+            <Button
+                android:id="@+id/game5"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:enabled="false"
+                android:background="@drawable/btn_background"
+                android:padding="5dp"
+                android:textSize="12sp"
+                android:text="ЦВЕТЫ ВЛИЯНИЯ"
+                android:textColor="@android:color/white" />
+
+
+            <Button
+                android:id="@+id/game6"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:enabled="false"
+                android:background="@drawable/btn_background"
+                android:padding="5dp"
+                android:textSize="12sp"
+                android:text="МАЯТНИК"
+                android:textColor="@android:color/white" />
+
+
+            <Button
+                android:id="@+id/game7"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:enabled="false"
+                android:background="@drawable/btn_background"
+                android:padding="5dp"
+                android:textSize="12sp"
+                android:text="АКТИВНОЕ СЛУШАНИЕ"
+                android:textColor="@android:color/white" />
+
+
+            <Button
+                android:id="@+id/game8"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:enabled="false"
+                android:background="@drawable/btn_background"
+                android:padding="5dp"
+                android:textSize="12sp"
+                android:text="I MESSAGE"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

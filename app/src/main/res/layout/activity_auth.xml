@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraint_layout_auth"
@@ -10,88 +10,55 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="16dp"
             android:orientation="vertical" >
-
-            <EditText
-                android:id="@+id/user_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:ems="10"
-                android:hint="Имя Пользовотеля"
-                android:inputType="textPersonName"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.17000002" />
-
-            <EditText
-                android:id="@+id/edt_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:ems="10"
-                android:hint="E-mail"
-                android:inputType="textPersonName"
-                app:layout_constraintBottom_toTopOf="@+id/etd_password"
-                app:layout_constraintEnd_toEndOf="@+id/user_name"
-                app:layout_constraintStart_toStartOf="@+id/user_name"
-                app:layout_constraintTop_toBottomOf="@+id/user_name" />
-
-            <EditText
-                android:id="@+id/etd_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:ems="10"
-                android:hint="Пароль"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="@+id/edt_email"
-                app:layout_constraintStart_toStartOf="@+id/edt_email"
-                app:layout_constraintTop_toBottomOf="@+id/edt_email" />
 
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Для использования данного приложения\n необходимо зарегистрироваться."
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toTopOf="@+id/user_name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.8" />
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"/>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Имя"
+            android:inputType="textPersonName"/>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/edt_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="E-mail"
+                android:inputType="textPersonName"/>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etd_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="Пароль"
+                android:inputType="textPassword"/>
+
 
             <RadioGroup
                 android:id="@+id/radioGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etd_password"
-                app:layout_constraintVertical_bias="0.043">
+                android:layout_marginTop="20dp">
 
                 <RadioButton
                     android:id="@+id/radio_parent"
@@ -110,30 +77,24 @@
             </RadioGroup>
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_marginTop="20dp"
                 android:id="@+id/image_view"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:src="@mipmap/ic_launcher"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/man"
                 app:civ_border_color="#FFFFFF"
-                app:civ_border_width="2dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/radioGroup"
-                app:layout_constraintVertical_bias="0.114" />
+                app:civ_border_width="2dp" />
 
             <Button
                 android:id="@+id/btn_register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:text="Регистрация"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/progressBar"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="@+id/progressBar"
-                app:layout_constraintTop_toBottomOf="@+id/image_view"
-                app:layout_constraintVertical_bias="0.19" />
+                android:background="@color/btnColor"
+                android:padding="5dp"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="20dp"
+                android:text="Регистрация" />
 
             <ProgressBar
                 android:id="@+id/progressBar"
@@ -145,13 +106,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/btn_register"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/image_view"
-                app:layout_constraintVertical_bias="0.060000002" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_marginBottom="8dp" />
+        </LinearLayout>
     </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
