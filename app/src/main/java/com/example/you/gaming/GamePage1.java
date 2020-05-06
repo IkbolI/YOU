@@ -279,7 +279,7 @@ public class GamePage1 extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds: dataSnapshot.getChildren()) {
-                    CommentClass commentClass = new CommentClass();
+//                    CommentClass commentClass = new CommentClass();
                     String retreivedUserName = ds.child("name").getValue(String.class);
                     String retreivedText = ds.child("text").getValue(String.class);
                 }
