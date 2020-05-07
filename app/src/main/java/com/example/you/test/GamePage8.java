@@ -1,9 +1,6 @@
 package com.example.you.test;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.you.R;
 import com.example.you.adapter.CommentAdapter;
@@ -31,9 +32,7 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class GamePage2 extends AppCompatActivity implements View.OnClickListener {
-
+public class GamePage8 extends AppCompatActivity implements View.OnClickListener {
     TextView mainQuestion;
     LinearLayout blockOne;
     Button btn_yes, btn_maybe, btn_no;
@@ -47,8 +46,8 @@ public class GamePage2 extends AppCompatActivity implements View.OnClickListener
     FirebaseAuth mAuth;
     FirebaseDatabase db = FirebaseDatabase.getInstance();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    final DatabaseReference game = db.getReference("GameMain").child("GP2");
-    final DatabaseReference users =  db.getReference("Users").child(user.getUid());
+    final DatabaseReference game = db.getReference("GameMain").child("GP8");
+    final DatabaseReference users = db.getReference("Users").child(user.getUid());
 
 
     List<UserModel> userListYes;
@@ -56,10 +55,8 @@ public class GamePage2 extends AppCompatActivity implements View.OnClickListener
     List<UserModel> userListNo;
     List<Comment> commentList;
 
-
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_main);
 
@@ -83,7 +80,7 @@ public class GamePage2 extends AppCompatActivity implements View.OnClickListener
             }
         });
 
-        mainQuestion.setText("Я всегда прав?");
+        mainQuestion.setText("Мне всегда нужна поддержка от моих родителей / я всегда должен поддерживать своих детей (во время обсуждения спросите: «Морально? Финансово? Защита ...?»");
         mAuth = FirebaseAuth.getInstance();
 
         userListYes = new ArrayList<>();
@@ -99,15 +96,15 @@ public class GamePage2 extends AppCompatActivity implements View.OnClickListener
     }
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId()){
+    public void onClick (View v){
+        switch (v.getId()) {
             case R.id.btn_yes:
                 btnYesClick();
                 break;
             case R.id.btn_maybe:
                 btnMaybeClick();
                 break;
-            case  R.id.btn_no:
+            case R.id.btn_no:
                 btnNoClick();
                 break;
             case R.id.btn_send:
@@ -119,13 +116,12 @@ public class GamePage2 extends AppCompatActivity implements View.OnClickListener
         }
     }
 
-    public void btnNextClick(){
-        startActivity(new Intent(GamePage2.this, GamePage3.class));
-        Toast.makeText(GamePage2.this, "Next btn clicked", Toast.LENGTH_LONG).show();
+    public void btnNextClick () {
+        startActivity(new Intent(GamePage8.this, GamePage9.class));
 
     }
 
-    public void btnYesClick(){
+    public void btnYesClick () {
         btn_maybe.setEnabled(false);
         btn_no.setEnabled(false);
         users.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -136,13 +132,14 @@ public class GamePage2 extends AppCompatActivity implements View.OnClickListener
                 AnswerObject answerObject = new AnswerObject(userName, imageUrl);
                 game.child("Yes").child(user.getUid()).setValue(answerObject);
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
     }
 
-    public void btnMaybeClick(){
+    public void btnMaybeClick () {
         btn_yes.setEnabled(false);
         btn_no.setEnabled(false);
         users.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -153,13 +150,14 @@ public class GamePage2 extends AppCompatActivity implements View.OnClickListener
                 AnswerObject answerObject = new AnswerObject(userName, imageUrl);
                 game.child("Maybe").child(user.getUid()).setValue(answerObject);
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
     }
 
-    public void btnNoClick(){
+    public void btnNoClick () {
         btn_maybe.setEnabled(false);
         btn_yes.setEnabled(false);
         users.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -170,13 +168,14 @@ public class GamePage2 extends AppCompatActivity implements View.OnClickListener
                 AnswerObject answerObject = new AnswerObject(userName, imageUrl);
                 game.child("No").child(user.getUid()).setValue(answerObject);
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
     }
 
-    public void btnSendClick(){
+    public void btnSendClick () {
         users.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -188,6 +187,7 @@ public class GamePage2 extends AppCompatActivity implements View.OnClickListener
                     game.child("Comment").child(user.getUid()).setValue(comment);
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
@@ -204,7 +204,7 @@ public class GamePage2 extends AppCompatActivity implements View.OnClickListener
         loadData();
     }
 
-    public void loadData(){
+    public void loadData () {
         readYesData();
         readMaybeData();
         readNoData();
@@ -212,7 +212,7 @@ public class GamePage2 extends AppCompatActivity implements View.OnClickListener
 
     }
 
-    public void readYesData(){
+    public void readYesData () {
         game.child("Yes").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -224,11 +224,12 @@ public class GamePage2 extends AppCompatActivity implements View.OnClickListener
                         userListYes.add(userModel);
                     }
 
-                    UserAdapter yesAdapter = new UserAdapter(GamePage2.this, userListYes);
+                    UserAdapter yesAdapter = new UserAdapter(GamePage8.this, userListYes);
                     recycler_yes.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                     recycler_yes.setAdapter(yesAdapter);
                 }
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
@@ -236,7 +237,7 @@ public class GamePage2 extends AppCompatActivity implements View.OnClickListener
     }
 
 
-    public void readMaybeData(){
+    public void readMaybeData () {
         game.child("Maybe").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -248,18 +249,19 @@ public class GamePage2 extends AppCompatActivity implements View.OnClickListener
                         userListMaybe.add(userModel);
                     }
 
-                    UserAdapter maybeAdapter = new UserAdapter(GamePage2.this, userListMaybe);
+                    UserAdapter maybeAdapter = new UserAdapter(GamePage8.this, userListMaybe);
                     recycler_maybe.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                     recycler_maybe.setAdapter(maybeAdapter);
                 }
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
         });
     }
 
-    public void readNoData(){
+    public void readNoData () {
         game.child("No").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -271,18 +273,19 @@ public class GamePage2 extends AppCompatActivity implements View.OnClickListener
                         userListNo.add(userModel);
                     }
 
-                    UserAdapter noAdapter = new UserAdapter(GamePage2.this, userListNo);
+                    UserAdapter noAdapter = new UserAdapter(GamePage8.this, userListNo);
                     recycler_no.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                     recycler_no.setAdapter(noAdapter);
                 }
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
         });
     }
 
-    public void readComments(){
+    public void readComments () {
         game.child("Comment").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -295,11 +298,12 @@ public class GamePage2 extends AppCompatActivity implements View.OnClickListener
                         commentList.add(commentObject);
                     }
 
-                    CommentAdapter adapter = new CommentAdapter(GamePage2.this, commentList);
+                    CommentAdapter adapter = new CommentAdapter(GamePage8.this, commentList);
                     recycler_comments.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                     recycler_comments.setAdapter(adapter);
                 }
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }

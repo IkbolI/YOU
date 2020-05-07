@@ -75,6 +75,12 @@ public class GamePage1 extends AppCompatActivity implements View.OnClickListener
         recycler_no = (RecyclerView) findViewById(R.id.recycler_no);
         recycler_comments = (RecyclerView) findViewById(R.id.recycler_comments);
         btn_next = (Button) findViewById(R.id.btn_next);
+        btn_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnNextClick();
+            }
+        });
 
         mainQuestion.setText("Молодёжь заслуживает доверия?");
         mAuth = FirebaseAuth.getInstance();
@@ -106,14 +112,12 @@ public class GamePage1 extends AppCompatActivity implements View.OnClickListener
             case R.id.btn_send:
                 btnSendClick();
                 break;
-            case R.id.btn_next:
-                btnNextClick();
-                break;
         }
     }
 
     public void btnNextClick(){
         startActivity(new Intent(GamePage1.this, GamePage2.class));
+        Toast.makeText(GamePage1.this, "Next btn clicked", Toast.LENGTH_LONG).show();
     }
 
     public void btnYesClick(){

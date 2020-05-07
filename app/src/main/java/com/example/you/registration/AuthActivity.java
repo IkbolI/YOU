@@ -58,14 +58,9 @@ public class AuthActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_auth);
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        if (firebaseUser != null){
-            startActivity(new Intent(AuthActivity.this, GameList.class));
-            finish();
-        }
-
-        setContentView(R.layout.activity_auth);
 
         radioGroup = findViewById(R.id.radioGroup);
         username = (EditText) findViewById(R.id.user_name);
@@ -78,7 +73,6 @@ public class AuthActivity extends AppCompatActivity {
         storageReference = FirebaseStorage.getInstance().getReference("Users");
         users = FirebaseDatabase.getInstance().getReference("Users");
         mAuth = FirebaseAuth.getInstance();
-        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
 
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -97,6 +91,12 @@ public class AuthActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
     }
 
     private void uploadFile() {

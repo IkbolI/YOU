@@ -196,21 +196,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
+
+
                 <Button
                     android:id="@+id/btn_next"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="СЛЕДУЮЩИЙ ВОПРОС"
-                    android:layout_marginTop="10dp"
-                    android:layout_gravity="right"
+                    android:background="@drawable/btn_success"
                     android:padding="5dp"
-                    android:textColor="@android:color/white"
-                    android:background="@drawable/btn_success"/>
-
+                    android:layout_gravity="right"
+                    android:layout_margin="16dp"
+                    android:text="СЛЕДУЮЩИЙ ВОПРОС"
+                    android:textColor="@android:color/white" />
 
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
-
 </LinearLayout>

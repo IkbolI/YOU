@@ -8,10 +8,13 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.you.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
     Button getTuned;
+    FirebaseUser firebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         getTuned = (Button) findViewById(R.id.button_getTuned);
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
         getTuned.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -27,5 +31,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        if (firebaseUser != null){
+            startActivity(new Intent(MainActivity.this, GameList.class));
+            finish();
+        }
     }
 }
