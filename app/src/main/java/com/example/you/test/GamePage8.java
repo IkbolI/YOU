@@ -80,7 +80,7 @@ public class GamePage8 extends AppCompatActivity implements View.OnClickListener
             }
         });
 
-        mainQuestion.setText("Мне всегда нужна поддержка от моих родителей / я всегда должен поддерживать своих детей (во время обсуждения спросите: «Морально? Финансово? Защита ...?»");
+        mainQuestion.setText("Мне всегда нужна поддержка от моих родителей. / Я всегда должен поддерживать своих детей.");
         mAuth = FirebaseAuth.getInstance();
 
         userListYes = new ArrayList<>();

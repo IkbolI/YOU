@@ -80,7 +80,7 @@ public class GamePage9 extends AppCompatActivity implements View.OnClickListener
             }
         });
 
-        mainQuestion.setText(" Взрослые слишком много критикуют молодёжь?");
+        mainQuestion.setText(" Взрослые слишком много критикуют молодёжь.");
         mAuth = FirebaseAuth.getInstance();
 
         userListYes = new ArrayList<>();

@@ -12,6 +12,7 @@
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:src="@mipmap/ic_launcher"
+        android:layout_marginRight="10dp"
         />
 
     <TextView
@@ -21,7 +22,8 @@
         app:layout_constraintRight_toRightOf="@+id/commentItem"
         android:text="Username"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        />
 
 </LinearLayout>
 

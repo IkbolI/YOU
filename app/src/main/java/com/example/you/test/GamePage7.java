@@ -81,7 +81,7 @@ public class GamePage7 extends AppCompatActivity implements View.OnClickListener
             }
         });
 
-        mainQuestion.setText("Мои родители должны контролировать меня до того, как мне исполнится 18 лет / я должен контролировать своих детей до того, как им исполнится 18 лет?");
+        mainQuestion.setText("Мои родители должны контролировать меня до того, как мне исполнится 18 лет. / Я должен контролировать своих детей до того, как им исполнится 18 лет.");
         mAuth = FirebaseAuth.getInstance();
 
         userListYes = new ArrayList<>();

@@ -81,7 +81,7 @@ public class GamePage4 extends AppCompatActivity implements View.OnClickListener
             }
         });
 
-        mainQuestion.setText("Молодёжь всегда должна соглашаться со взрослыми, несмотря ни на что. Это вопрос уважения?");
+        mainQuestion.setText("Молодёжь всегда должна соглашаться со взрослыми, несмотря ни на что. Это вопрос уважения.");
         mAuth = FirebaseAuth.getInstance();
 
         userListYes = new ArrayList<>();

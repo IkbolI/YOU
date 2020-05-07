@@ -82,7 +82,7 @@ public class GamePage11 extends AppCompatActivity implements View.OnClickListene
             }
         });
 
-        mainQuestion.setText("Я думаю, что молодёжь должна отдавать зарплату родителям (по закону)?");
+        mainQuestion.setText("Я думаю, что молодёжь должна отдавать зарплату родителям.");
         mAuth = FirebaseAuth.getInstance();
 
         userListYes = new ArrayList<>();

@@ -83,7 +83,7 @@ public class GamePage3 extends AppCompatActivity implements View.OnClickListener
             }
         });
 
-        mainQuestion.setText(" Взрослые иногда могут быть недалекими?");
+        mainQuestion.setText("Взрослые иногда могут быть такими \"недалёкими.\"");
         mAuth = FirebaseAuth.getInstance();
 
         userListYes = new ArrayList<>();

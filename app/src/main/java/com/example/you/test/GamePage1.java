@@ -82,7 +82,7 @@ public class GamePage1 extends AppCompatActivity implements View.OnClickListener
             }
         });
 
-        mainQuestion.setText("Молодёжь заслуживает доверия?");
+        mainQuestion.setText("Молодёжь заслуживает доверия.");
         mAuth = FirebaseAuth.getInstance();
 
         userListYes = new ArrayList<>();

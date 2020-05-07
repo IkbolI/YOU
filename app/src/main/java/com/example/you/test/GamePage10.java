@@ -80,7 +80,7 @@ public class GamePage10 extends AppCompatActivity implements View.OnClickListene
             }
         });
 
-        mainQuestion.setText("Я должен стать тем, кем хотят мои родители (например, врач, юрист и пр.), но я хочу быть… / Я думаю, что я должен решить вопрос о карьере моего ребенка?");
+        mainQuestion.setText("Я должен выбрать ту профессию, которую хотят мои родители. / Я думаю, что я должен решить вопрос о карьере моего ребенка.");
         mAuth = FirebaseAuth.getInstance();
 
         userListYes = new ArrayList<>();

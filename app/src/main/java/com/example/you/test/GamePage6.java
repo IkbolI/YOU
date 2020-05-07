@@ -79,7 +79,7 @@ public class GamePage6 extends AppCompatActivity implements View.OnClickListener
             }
         });
 
-        mainQuestion.setText("Мои родители должны найти мне супруга / я найду супруга для моих детей?");
+        mainQuestion.setText("Мои родители должны найти мне супруга(у). / Я найду супруга(у) для моих детей.");
         mAuth = FirebaseAuth.getInstance();
 
         userListYes = new ArrayList<>();

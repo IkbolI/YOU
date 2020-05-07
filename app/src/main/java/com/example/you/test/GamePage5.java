@@ -78,7 +78,7 @@ public class GamePage5 extends AppCompatActivity implements View.OnClickListener
             }
         });
 
-        mainQuestion.setText("Родственники, братья и сестры должны морально и / или материально поддерживать друг друга, несмотря ни на что?");
+        mainQuestion.setText("Родственники, братья и сестры должны морально и / или материально поддерживать друг друга, несмотря ни на что.");
         mAuth = FirebaseAuth.getInstance();
 
         userListYes = new ArrayList<>();

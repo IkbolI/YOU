@@ -83,7 +83,7 @@ public class GamePage2 extends AppCompatActivity implements View.OnClickListener
             }
         });
 
-        mainQuestion.setText("Я всегда прав?");
+        mainQuestion.setText("Я всегда прав.");
         mAuth = FirebaseAuth.getInstance();
 
         userListYes = new ArrayList<>();
