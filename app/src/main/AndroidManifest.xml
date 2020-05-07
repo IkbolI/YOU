@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".test.GamePage2"
-            android:parentActivityName=".test.GamePage1"/>
+            android:parentActivityName=".registration.PreGamePage"/>
         <activity android:name=".test.GamePage1"
             android:parentActivityName=".registration.PreGamePage"/>
         <activity android:name=".registration.GameList" /> <!-- <activity android:name=".gaming.GamePage12" /> -->

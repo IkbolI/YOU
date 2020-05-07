@@ -122,7 +122,13 @@ public class GamePage11 extends AppCompatActivity implements View.OnClickListene
         startActivity(new Intent(GamePage11.this, GameList.class));
 
     }
-
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, GameList.class);
+        startActivity(intent);
+        finish();
+        super.onBackPressed();
+    }
     public void btnYesClick () {
         btn_maybe.setEnabled(false);
         btn_no.setEnabled(false);

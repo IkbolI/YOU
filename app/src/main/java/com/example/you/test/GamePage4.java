@@ -19,6 +19,7 @@ import com.example.you.adapter.UserAdapter;
 import com.example.you.models.AnswerObject;
 import com.example.you.models.Comment;
 import com.example.you.models.UserModel;
+import com.example.you.registration.GameList;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -116,7 +117,13 @@ public class GamePage4 extends AppCompatActivity implements View.OnClickListener
 //                break;
         }
     }
-
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, GameList.class);
+        startActivity(intent);
+        finish();
+        super.onBackPressed();
+    }
     public void btnNextClick() {
         startActivity(new Intent(GamePage4.this, GamePage5.class));
 

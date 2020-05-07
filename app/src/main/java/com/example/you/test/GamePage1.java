@@ -19,6 +19,8 @@ import com.example.you.adapter.UserAdapter;
 import com.example.you.models.AnswerObject;
 import com.example.you.models.Comment;
 import com.example.you.models.UserModel;
+import com.example.you.registration.GameList;
+import com.example.you.registration.PreGamePage;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -98,6 +100,14 @@ public class GamePage1 extends AppCompatActivity implements View.OnClickListener
     }
 
     @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, GameList.class);
+        startActivity(intent);
+        finish();
+        super.onBackPressed();
+    }
+
+    @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_yes:
@@ -117,7 +127,6 @@ public class GamePage1 extends AppCompatActivity implements View.OnClickListener
 
     public void btnNextClick(){
         startActivity(new Intent(GamePage1.this, GamePage2.class));
-        Toast.makeText(GamePage1.this, "Next btn clicked", Toast.LENGTH_LONG).show();
     }
 
     public void btnYesClick(){

@@ -18,6 +18,7 @@ import com.example.you.adapter.UserAdapter;
 import com.example.you.models.AnswerObject;
 import com.example.you.models.Comment;
 import com.example.you.models.UserModel;
+import com.example.you.registration.GameList;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -31,30 +32,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GamePage5 extends AppCompatActivity implements View.OnClickListener {
-        TextView mainQuestion;
-        LinearLayout blockOne;
-        Button btn_yes, btn_maybe, btn_no;
-        MaterialEditText comment;
-        Button btn_send;
-        LinearLayout blockTwo;
-        RecyclerView recycler_yes, recycler_maybe, recycler_no;
-        RecyclerView recycler_comments;
-        Button btn_next;
+    TextView mainQuestion;
+    LinearLayout blockOne;
+    Button btn_yes, btn_maybe, btn_no;
+    MaterialEditText comment;
+    Button btn_send;
+    LinearLayout blockTwo;
+    RecyclerView recycler_yes, recycler_maybe, recycler_no;
+    RecyclerView recycler_comments;
+    Button btn_next;
 
-        FirebaseAuth mAuth;
-        FirebaseDatabase db = FirebaseDatabase.getInstance();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        final DatabaseReference game = db.getReference("GameMain").child("GP5");
-        final DatabaseReference users = db.getReference("Users").child(user.getUid());
+    FirebaseAuth mAuth;
+    FirebaseDatabase db = FirebaseDatabase.getInstance();
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    final DatabaseReference game = db.getReference("GameMain").child("GP5");
+    final DatabaseReference users = db.getReference("Users").child(user.getUid());
 
 
-        List<UserModel> userListYes;
-        List<UserModel> userListMaybe;
-        List<UserModel> userListNo;
-        List<Comment> commentList;
+    List<UserModel> userListYes;
+    List<UserModel> userListMaybe;
+    List<UserModel> userListNo;
+    List<Comment> commentList;
 
-        @Override
-        protected void onCreate (Bundle savedInstanceState){
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_main);
 
@@ -90,11 +91,10 @@ public class GamePage5 extends AppCompatActivity implements View.OnClickListener
         btn_maybe.setOnClickListener(this);
         btn_no.setOnClickListener(this);
         btn_send.setOnClickListener(this);
-
     }
 
-        @Override
-        public void onClick (View v){
+    @Override
+    public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_yes:
                 btnYesClick();
@@ -113,13 +113,19 @@ public class GamePage5 extends AppCompatActivity implements View.OnClickListener
 //                break;
         }
     }
-
-        public void btnNextClick () {
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, GameList.class);
+        startActivity(intent);
+        finish();
+        super.onBackPressed();
+    }
+    public void btnNextClick() {
         startActivity(new Intent(GamePage5.this, GamePage6.class));
 
     }
 
-        public void btnYesClick () {
+    public void btnYesClick() {
         btn_maybe.setEnabled(false);
         btn_no.setEnabled(false);
         users.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -137,7 +143,7 @@ public class GamePage5 extends AppCompatActivity implements View.OnClickListener
         });
     }
 
-        public void btnMaybeClick () {
+    public void btnMaybeClick() {
         btn_yes.setEnabled(false);
         btn_no.setEnabled(false);
         users.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -155,7 +161,7 @@ public class GamePage5 extends AppCompatActivity implements View.OnClickListener
         });
     }
 
-        public void btnNoClick () {
+    public void btnNoClick() {
         btn_maybe.setEnabled(false);
         btn_yes.setEnabled(false);
         users.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -173,7 +179,7 @@ public class GamePage5 extends AppCompatActivity implements View.OnClickListener
         });
     }
 
-        public void btnSendClick () {
+    public void btnSendClick() {
         users.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -202,7 +208,7 @@ public class GamePage5 extends AppCompatActivity implements View.OnClickListener
         loadData();
     }
 
-        public void loadData () {
+    public void loadData() {
         readYesData();
         readMaybeData();
         readNoData();
@@ -210,7 +216,7 @@ public class GamePage5 extends AppCompatActivity implements View.OnClickListener
 
     }
 
-        public void readYesData () {
+    public void readYesData() {
         game.child("Yes").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -235,7 +241,7 @@ public class GamePage5 extends AppCompatActivity implements View.OnClickListener
     }
 
 
-        public void readMaybeData () {
+    public void readMaybeData() {
         game.child("Maybe").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -259,7 +265,7 @@ public class GamePage5 extends AppCompatActivity implements View.OnClickListener
         });
     }
 
-        public void readNoData () {
+    public void readNoData() {
         game.child("No").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -283,7 +289,7 @@ public class GamePage5 extends AppCompatActivity implements View.OnClickListener
         });
     }
 
-        public void readComments () {
+    public void readComments() {
         game.child("Comment").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

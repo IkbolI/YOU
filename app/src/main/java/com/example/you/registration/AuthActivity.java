@@ -96,7 +96,10 @@ public class AuthActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
+        if (firebaseUser != null){
+            startActivity(new Intent(AuthActivity.this, GameList.class));
+            finish();
+        }
     }
 
     private void uploadFile() {

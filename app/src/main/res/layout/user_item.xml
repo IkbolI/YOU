@@ -1,29 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="16dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:padding="16dp">
 
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:src="@mipmap/ic_launcher"
         android:layout_marginRight="10dp"
-        />
+        android:src="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/username"
-        app:layout_constraintTop_toTopOf="@+id/commentItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Username"
         app:layout_constraintLeft_toLeftOf="@+id/commentItem"
         app:layout_constraintRight_toRightOf="@+id/commentItem"
-        android:text="Username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        app:layout_constraintTop_toTopOf="@+id/commentItem" />
 
 </LinearLayout>
 
