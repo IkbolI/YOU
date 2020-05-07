@@ -78,6 +78,7 @@ public class AuthActivity extends AppCompatActivity {
         storageReference = FirebaseStorage.getInstance().getReference("Users");
         users = FirebaseDatabase.getInstance().getReference("Users");
         mAuth = FirebaseAuth.getInstance();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
 
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -126,7 +127,7 @@ public class AuthActivity extends AppCompatActivity {
                                                             }, 500);
                                                             int radioId = radioGroup.getCheckedRadioButtonId();
                                                             radio_parent = findViewById(radioId);
-                                                            Toast.makeText(AuthActivity.this, "Упешно загружено", Toast.LENGTH_LONG).show();
+                                                            Toast.makeText(AuthActivity.this, "Уcпешно загружено", Toast.LENGTH_LONG).show();
                                                             User upload = new User(
                                                                     email.getText().toString().trim(),
                                                                     url,
@@ -134,7 +135,7 @@ public class AuthActivity extends AppCompatActivity {
                                                                     radio_parent.getText().toString().trim()
                                                                     );
                                                             String uploadId = users.push().getKey();
-                                                            users.child(uploadId).setValue(upload);
+                                                            users.child(firebaseUser.getUid()).setValue(upload);
                                                             Intent intent = new Intent(AuthActivity.this, PreGamePage.class);
                                                             startActivity(intent);
                                                             finish();

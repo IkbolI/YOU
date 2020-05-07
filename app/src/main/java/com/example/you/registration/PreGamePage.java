@@ -8,13 +8,15 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.you.R;
-import com.example.you.gaming.GamePage1;
+import com.example.you.test.GamePage1;
+
 
 public class PreGamePage extends AppCompatActivity {
 
     Button startGame;
 
     String gameStatus;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
