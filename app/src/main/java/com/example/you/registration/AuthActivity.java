@@ -15,6 +15,7 @@ import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -54,13 +55,12 @@ public class AuthActivity extends AppCompatActivity {
     private StorageTask storageTask;
     private ProgressBar progressBar;
     private FirebaseUser firebaseUser;
+    private LinearLayout parent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
-
-        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
         radioGroup = findViewById(R.id.radioGroup);
         username = (EditText) findViewById(R.id.user_name);
@@ -69,11 +69,12 @@ public class AuthActivity extends AppCompatActivity {
         registration = (Button) findViewById(R.id.btn_register);
         imageView = (ImageView) findViewById(R.id.image_view);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        parent = (LinearLayout) findViewById(R.id.constraint_layout_auth);
 
         storageReference = FirebaseStorage.getInstance().getReference("Users");
         users = FirebaseDatabase.getInstance().getReference("Users");
         mAuth = FirebaseAuth.getInstance();
-
+        firebaseUser = mAuth.getCurrentUser();
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,7 +131,7 @@ public class AuthActivity extends AppCompatActivity {
                                                             }, 500);
                                                             int radioId = radioGroup.getCheckedRadioButtonId();
                                                             radio_parent = findViewById(radioId);
-                                                            Toast.makeText(AuthActivity.this, "Уcпешно загружено", Toast.LENGTH_LONG).show();
+                                                            Toast.makeText(AuthActivity.this, "Регистрация прошла успешно!", Toast.LENGTH_SHORT).show();
                                                             User upload = new User(
                                                                     email.getText().toString().trim(),
                                                                     url,
@@ -138,8 +139,9 @@ public class AuthActivity extends AppCompatActivity {
                                                                     radio_parent.getText().toString().trim()
                                                                     );
                                                             String uploadId = users.push().getKey();
-                                                            users.child(firebaseUser.getUid()).setValue(upload);
-                                                            Intent intent = new Intent(AuthActivity.this, PreGamePage.class);
+                                                            FirebaseUser user = mAuth.getCurrentUser();
+                                                            users.child(user.getUid()).setValue(upload);
+                                                            Intent intent = new Intent(AuthActivity.this, GameList.class);
                                                             startActivity(intent);
                                                             finish();
                                                         }

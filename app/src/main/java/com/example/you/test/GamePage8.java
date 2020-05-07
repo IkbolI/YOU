@@ -132,6 +132,8 @@ public class GamePage8 extends AppCompatActivity implements View.OnClickListener
     public void btnYesClick () {
         btn_maybe.setEnabled(false);
         btn_no.setEnabled(false);
+        btn_maybe.setBackground(getResources().getDrawable(R.drawable.btn_disabled));
+        btn_no.setBackground(getResources().getDrawable(R.drawable.btn_disabled));
         users.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -150,6 +152,8 @@ public class GamePage8 extends AppCompatActivity implements View.OnClickListener
     public void btnMaybeClick () {
         btn_yes.setEnabled(false);
         btn_no.setEnabled(false);
+        btn_yes.setBackground(getResources().getDrawable(R.drawable.btn_disabled));
+        btn_no.setBackground(getResources().getDrawable(R.drawable.btn_disabled));
         users.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -168,6 +172,8 @@ public class GamePage8 extends AppCompatActivity implements View.OnClickListener
     public void btnNoClick () {
         btn_maybe.setEnabled(false);
         btn_yes.setEnabled(false);
+        btn_maybe.setBackground(getResources().getDrawable(R.drawable.btn_disabled));
+        btn_yes.setBackground(getResources().getDrawable(R.drawable.btn_disabled));
         users.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

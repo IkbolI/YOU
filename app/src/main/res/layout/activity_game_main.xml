@@ -48,7 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <LinearLayout
                     android:id="@+id/linearLayout"
@@ -126,34 +126,49 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:weightSum="3">
+                    android:weightSum="7">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:background="@drawable/border"
+                        android:text="ДА"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:textColor="@color/yesBack"
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="ДА" />
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:background="@drawable/border"
+                        android:text="ВОЗМОЖНО"
+                        android:textColor="@color/maybeBack"
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="3"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
                         android:gravity="center"
-                        android:text="ВОЗМОЖНО" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="НЕТ" />
+                        android:background="@drawable/border"
+                        android:text="НЕТ"
+                        android:textColor="@color/noBack"
+                        android:textStyle="bold"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -166,6 +181,8 @@
                         android:id="@+id/recycler_yes"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/border"
+                        android:padding="1dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1" />
 
@@ -173,14 +190,18 @@
                         android:id="@+id/recycler_maybe"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/border"
                         android:layout_margin="5dp"
+                        android:padding="1dp"
                         android:layout_weight="1" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recycler_no"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/border"
                         android:layout_margin="5dp"
+                        android:padding="1dp"
                         android:layout_weight="1" />
 
                 </LinearLayout>
