@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.you">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -26,7 +27,8 @@
          <activity android:name=".test.GamePage4" />
          <activity android:name=".test.GamePage3" />
         <activity android:name=".registration.PreGamePage"
-            android:parentActivityName=".registration.GameList"/>
+            android:parentActivityName=".registration.GameList"
+            tools:overrideLibrary="com.pierfrancescosoffritti.androidyoutubeplayer"/>
         <activity android:name=".registration.AuthActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

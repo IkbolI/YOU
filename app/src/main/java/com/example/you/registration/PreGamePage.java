@@ -14,7 +14,6 @@ import com.example.you.test.GamePage1;
 public class PreGamePage extends AppCompatActivity {
 
     Button startGame;
-
     String gameStatus;
 
 
@@ -26,6 +25,7 @@ public class PreGamePage extends AppCompatActivity {
         startGame = (Button) findViewById(R.id.buttonPlay);
 
         gameStatus = "";
+
 
         startGame.setOnClickListener(new View.OnClickListener() {
             @Override
